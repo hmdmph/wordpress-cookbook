@@ -22,6 +22,12 @@
 # limitations under the License.
 #
 
+#Wordpress Restore settings
+default['wordpress']['old']['db'] = "old_wordpressdb" #if you use restore wordpress receipe this is the old database name
+default['wordpress']['files']['backup']['path'] = "/temp/temp.sql" #this is wordpress database sql backup file path
+default['wordpress']['server_port'] = '80' #change if you not using port 80
+
+
 # General settings
 default['wordpress']['version'] = 'latest'
 
@@ -37,7 +43,7 @@ default['wordpress']['allow_multisite'] = false
 
 default['wordpress']['config_perms'] = 0644
 default['wordpress']['server_aliases'] = [node['fqdn']]
-default['wordpress']['server_port'] = '80'
+
 
 default['wordpress']['install']['user'] = node['apache']['user']
 default['wordpress']['install']['group'] = node['apache']['group']

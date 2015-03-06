@@ -16,7 +16,6 @@ web_app web_app_name do
   template "wordpress.conf.erb"
   docroot node['wordpress']['dir']
   server_name node['wordpress']['server_name']
-  server_short_name node['wordpress']['server_short_name']
   server_aliases node['wordpress']['server_aliases']
   server_port node['wordpress']['server_port']
   server_internal_ip node['wordpress']['server_internal_ip']
