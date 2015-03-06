@@ -4,12 +4,14 @@
 Description
 ===========
 
-The Chef WordPress cookbook installs and configures WordPress according to the instructions at http://codex.wordpress.org/Installing_WordPress.
+The Chef WordPress cookbook installs and configures WordPress according to the instructions at http://codex.wordpress.org/Installing_WordPress or restore wordpress site from sql backup and files 
 
 Description
 ===========
 
 This cookbook does not set up the WordPress blog. You will need to do this manually by going to http://hostname/wp-admin/install.php (this URL may be different if you change the attribute values).
+
+Also this contains restore wordpress recipe which can be used to restore the wordpress site from files and db sql backup
 
 Requirements
 ============
@@ -35,7 +37,13 @@ Cookbooks
 Attributes
 ==========
 
-### WordPress
+### Wordpress restore specific 
+
+* `node['wordpress']['old']['db']`  - if you use restore wordpress receipe this is the old database name
+* `node['wordpress']['files']['backup']['path']` - this is wordpress database sql backup file path
+* `node['wordpress']['server_port']` - change if you not using port 80
+
+### WordPress install
 
 * `node['wordpress']['version']` - Version of WordPress to download. Use 'latest' to download most recent version.
 * `node['wordpress']['parent_dir']` - Parent directory to where WordPress will be extracted. (Windows Only)
@@ -54,6 +62,8 @@ Usage
 =====
 
 Add the "wordpress" recipe to your node's run list or role, or include the recipe in another cookbook.
+
+If you want restore wordpress from another sql backup and files include "restore" recipe in cookbook
 
 License and Author
 ==================
